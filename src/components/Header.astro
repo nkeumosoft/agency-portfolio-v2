@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo.png"
+import { Button } from "./ui/button";
+import { Menu } from "@lucide/astro"
+
+---
+
+<div class="h-auto relative top-0 left-0 w-screen px-2 md:px-8">
+    <div class="h-full w-full flex justify-between items-center gap-1.5 py-0.5 px-0.5 md:py-2 md:px-8">
+        <div class="h-[70px] w-[70px] md:h-[100px] md:w-[100px]">
+            <img src={logo.src} alt='company logo' class="w-full h-full object-contain"/>
+        </div>
+        <div class="hidden md:block font-neue  font-normal">
+            TRUST CONSULTING © 2025
+        </div>
+        <div class="flex justify-center items-center py-0.5 gap-6">
+            <Button variant="outline" size="lg" className="rounded-full cursor-pointer text-[16px] bg-transparent border-black text-black">Let's talk</Button>
+            <div class="flex flex-col gap-2.5 justify-center items-center w-[40px] p-px">
+                <div class="w-full h-[1px] bg-black"></div>
+                <div class="w-full h-[1px] bg-black"></div>
+            </div>
+        </div>
+    </div>
+</div>
