@@ -1,0 +1,38 @@
+---
+---
+
+<div class="w-full flex items-center justify-center">
+  <h1
+    class="uppercase text-black font-light md:text-[112px] text-[38px] text-center md:leading-[120px]"
+    id="quote"
+  >
+    End-to-end Technical Solutions for Modern Businesses
+  </h1>
+</div>
+<script>
+  import SplitType from "split-type";
+  import { gsap } from "@/utils/gsap";
+  let text = new SplitType("#quote"),
+    tl = gsap.timeline();
+
+  tl.from(
+    text.chars,
+    { duration: 0.6, autoAlpha: 0, scale: 2, force3D: true, stagger: 0.02 },
+    0.5
+  )
+    .to(
+      text.words,
+      { duration: 0.2, color: "#ff8709", scale: 0.9, stagger: 0.1 },
+      "words"
+    )
+    .to(
+      text.words,
+      { duration: 0.4, color: "black", scale: 1, stagger: 0.1 },
+      "words+=0.1"
+    )
+    .from(text.lines, {
+      duration: 0.5,
+      y: 50,
+      stagger: 0.2,
+    });
+</script>

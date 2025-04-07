@@ -1,0 +1,53 @@
+---
+import { gsap } from "gsap";
+import logo from "../../assets/images/logo.png";
+import SocialLinks from "./SocialLinks.astro";
+import PrivacyLinks from "./PrivacyLinks.astro";
+ 
+---
+
+<div class="fixed top-0 left-0 w-full h-0 overflow-hidden hidden z-99 bg-black offcanvas">
+  <div class="flex flex-col w-full h-full items-center justify-between px-10">
+    <div class="h-[90%] flex flex-col-reverse md:flex-row w-full items-start md:items-center justify-between py-[100px] gap-9">
+      <div class="flex-auto hidden md:block"></div>
+      <div class="flex-auto h-full">
+        <div class="flex flex-col items-start justify-between h-full pt-7">
+          <div class="logo-container hidden md:block h-[300px] w-[300px]">
+            <a href="">
+              <img src={logo.src} alt="company logo" class="object-contain" />
+            </a>
+          </div>
+          <SocialLinks />
+        </div>
+      </div>
+      <div class="flex-auto h-full">
+        <div class="big-links h-full flex flex-col justify-start gap-5">
+          <div class="text-white text-5xl md:text-[80px] font-normal">
+            <a href="">Work</a>
+          </div>
+          <div class="text-white text-5xl md:text-[80px] font-normal">
+            <a href="">Services</a>
+          </div>
+          <div class="text-white text-5xl md:text-[80px] font-normal">
+            <a href="">Contact</a>
+          </div>
+          <div class="text-white text-5xl md:text-[80px] font-normal">
+            <a href="">About</a>
+          </div>
+          <div class="text-white text-5xl md:text-[80px] font-normal">
+            <a href="">Careers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="h-[10%] w-full flex justify-between">
+      <PrivacyLinks />
+      <div class="mail">
+        <a href="mailto:contact@trustconsulting.com"
+          >contact@trustconsulting.tech</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/src/scripts/offcanvas.js"></script>
