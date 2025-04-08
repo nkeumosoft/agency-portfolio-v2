@@ -1,0 +1,48 @@
+---
+import Work from "./Work.astro";
+---
+
+<div class="work-section w-full pb-[100px] md:pb-[200px]">
+  <div class="w-full flex flex-col items-start justify-start md:justify-center h-full">
+    <div class="w-full flex items-center justify-between pb-[50px]">
+      <div class="mt-[50px]">
+        <h1 class="font-normal text-3xl md:text-[50px] uppercase">Selected works</h1>
+      </div>
+      <div class="text hidden md:block">See all works</div>
+    </div>
+    <div
+      class="works md:flex items-center justify-start h-full w-full overflow-x-hidden"
+    >
+      <Work />
+      <Work />
+      <Work />
+    </div>
+  </div>
+</div>
+
+<script>
+  import { gsap, ScrollTrigger } from "@/utils/gsap";
+  let cont = document.querySelector<HTMLElement>(".work-section"),
+    sections = cont
+      ? gsap.utils.toArray<HTMLElement>(cont?.querySelectorAll(".work"))
+      : [],
+    mm = gsap.matchMedia();
+
+  mm.add("(min-width:800px)", () => {
+    let tween = gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none",
+    });
+
+    ScrollTrigger.create({
+      trigger: cont,
+      start: "top top",
+      end: () => "+=" + window.innerWidth * (sections.length - 1),
+      animation: tween,
+      pin: true,
+      scrub: 1,
+      pinSpacing: true,
+      markers: true,
+    });
+  });
+</script>

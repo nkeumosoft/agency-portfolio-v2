@@ -1,0 +1,49 @@
+---
+import Seperator from "../Seperator.astro";
+import ServiceBox from "./ServiceBox.astro";
+import services from "../../data/services.json"
+---
+<div class="services w-full h-full flex flex-col items-center pt-[100px] md:py-[200px]">
+    <Seperator />
+    <div class="services-container flex flex-col md:flex-row w-full h-auto items-start md:items-stretch justify-center pt-[50px] gap-3">
+        <div class="md:w-[30%] flex items-start">
+            <h1 class="text-black font-normal text-[50px] uppercase">Services</h1>
+        </div>
+        <div class="md:w-[70%]">
+            {services.map(service => (<ServiceBox service={service}/>))}
+        </div>
+    </div>
+</div>
+<script>
+    import { gsap, ScrollTrigger } from "@/utils/gsap";
+    let serviceContainer = document.querySelector<HTMLElement>('.services-container'),
+        mm = gsap.matchMedia()
+
+    serviceContainer?.querySelectorAll('.service').forEach(service => {
+        gsap.from(service, {
+            opacity: 0,
+            x: 100,
+            duration: 1.5,
+            scrollTrigger: {
+                trigger: service,
+                start:'top center',
+                end:'bottom center',
+                scrub: 1
+            }
+        })
+    })
+
+    mm.add("(min-width: 800px)", () => {
+    ScrollTrigger.create({
+        trigger: serviceContainer,
+        start: 'top 11%',
+        end: () => {
+            const height = serviceContainer?.scrollHeight || 0;
+            const offset = height * 0.2;
+            return `+=${height - offset}`;
+        },
+        pin: serviceContainer?.querySelector('h1'),
+    });
+});
+
+</script>

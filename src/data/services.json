@@ -1,0 +1,32 @@
+[
+  {
+    "number": "01",
+    "title": "Web & Mobile Development",
+    "description": "We craft modern web and mobile apps tailored to your brand and user needs. Our team uses responsive design and scalable architecture to deliver high-performance experiences.\n\nFrom MVPs to full-scale platforms, we manage the entire development lifecycle—ensuring smooth deployment, intuitive interfaces, and long-term maintainability."
+  },
+  {
+    "number": "02",
+    "title": "Technical Advisory",
+    "description": "We help businesses make smart tech decisions by aligning digital strategy with real-world goals. Whether you're scaling infrastructure or adopting new tools, we provide clarity and direction.\n\nOur experts bring cross-industry experience, helping you minimize risk and maximize ROI with actionable insights and customized technology roadmaps."
+  },
+  {
+    "number": "03",
+    "title": "Consulting Services",
+    "description": "Our consulting combines strategic planning with hands-on implementation. We partner with your team to guide digital transformation from concept to execution.\n\nWhether you're refining workflows or launching new systems, we ensure your technology investments drive measurable outcomes and lasting impact."
+  },
+  {
+    "number": "04",
+    "title": "Cloud & DevOps",
+    "description": "We design cloud-native architectures and automate delivery pipelines to enhance reliability, scalability, and deployment speed.\n\nWith expertise in AWS, Azure, and GCP, we optimize your infrastructure for performance and cost-efficiency while integrating best-practice DevOps workflows."
+  },
+  {
+    "number": "05",
+    "title": "UI/UX Design",
+    "description": "We create intuitive, user-centered designs that enhance engagement and simplify complex tasks. Every interface is tested for usability and built for real users.\n\nFrom wireframes to polished components, we deliver consistent, accessible, and on-brand experiences across all devices."
+  },
+  {
+    "number": "06",
+    "title": "AI/ML & Data Services",
+    "description": "Unlock insights and automate operations with data-driven solutions. We design custom AI and ML models tailored to your business challenges.\n\nOur services cover data processing, predictive modeling, and deployment—turning raw data into intelligent, real-time decisions."
+  }
+]
