@@ -1,0 +1,118 @@
+---
+import { ExternalLink } from "lucide-react";
+import caseImage from "../../assets/images/case.jpg";
+import SeperatorBlurred from "../SeperatorBlurred.astro";
+---
+
+<div class="h-auto flex bg-[#F8F9FA] flex-col items-center">
+  <div
+    class="case-study h-auto md:h-dvh w-dvw  flex items-stretch gap-8 justify-center p-[20px] md:p-[60px]"
+  >
+    <div
+      class="case w-full md:w-1/2 bg-white h-full rounded-[10px] flex flex-col gap-[40px] px-[30px] py-[30px] items-start"
+    >
+      <div class="pill capitalize rounded-full p-2 bg-[#EBF8FF]">
+        featured case study
+      </div>
+      <div class="text-left text-3xl md:text-5xl">
+        Digital Transformation for Global Finance Corp
+      </div>
+       <SeperatorBlurred />
+      <div class="">
+        <p>
+          A comprehensive digital transformation initiative that included mobile
+          app development, cloud migration, and implementation of AI-driven
+          analytics to enhance customer experience and operational efficiency.
+        </p>
+      </div>
+       <SeperatorBlurred />
+      <div
+        class="flex-col md:flex md:flex-row items-center justify-between gap-[60px]"
+      >
+        <div
+          class="flex flex-col gap-2 mb-4 items-start justify-center flex-[1_1_33%]"
+        >
+          <h2 class="text-5xl md:text-4xl font-bold">45%</h2>
+          <p class="text-left whitespace-break-spaces">
+            Increase in Customer Engagement
+          </p>
+        </div>
+        <div
+          class="flex flex-col gap-2 mb-4 items-start justify-center flex-[1_1_33%]"
+        >
+          <h2 class="text-5xl md:text-4xl font-bold">60%</h2>
+          <p class="text-left whitespace-break-spaces">
+            Faster Transaction Processing
+          </p>
+        </div>
+        <div
+          class="flex flex-col gap-2 mb-4 items-start justify-center flex-[1_1_33%]"
+        >
+          <h2 class="text-5xl md:text-4xl font-bold">30%</h2>
+          <p class="text-left whitespace-break-spaces">
+            Reduction in Operational Costs
+          </p>
+        </div>
+      </div>
+       <SeperatorBlurred />
+      <a
+        href=""
+        class="flex items center capitalize gap-1.5 text-[18px] md:hidden"
+      >
+        <h3>read full case study</h3>
+        <ExternalLink />
+      </a>
+    </div>
+    <div class="case-2 hidden md:block w-1/2 relative">
+      <div class="image h-full w-full bg-gray-300 absolute top-0 left-0">
+        <a href="" class="h-full w-full relative">
+          <img
+            src={caseImage.src}
+            alt="case study image"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute z-10 top-0 left-0 h-full w-full bg-black opacity-20"
+          >
+          </div>
+        </a>
+      </div>
+      <div
+        class="t image h-full w-full bg-[#0066cc] absolute top-0 right-0 flex items-center justify-center overflow-hidden"
+      >
+        <div class="details text-black text-9xl capitalize">details</div>
+      </div>
+    </div>
+  </div>
+  <div class="hidden h-[150px] md:block"></div>
+</div>
+
+<script>
+  import { gsap, ScrollTrigger } from "@/utils/gsap";
+  import SplitType from "split-type";
+  let tween = gsap.to(".case-2 .t", {
+      height: 0,
+      duration: 0.5,
+      paused: true,
+    }),
+    tl = gsap.timeline(),
+    details = new SplitType(".details"),
+    detailAnim = tl
+      .from(details.chars, {
+        y: 100,
+        opacity: 0,
+        stagger: 0.4,
+      })
+      .to(details.chars, { color: "white", stagger: 0.1 });
+
+  ScrollTrigger.create({
+    trigger: ".case-2",
+    start: "top 20%",
+    animation: detailAnim,
+    toggleActions: "play paused resume reverse",
+  });
+
+  let caseTwo = document.querySelector(".case-2");
+  caseTwo?.addEventListener("mouseenter", () => tween.timeScale(1).play());
+  caseTwo?.addEventListener("mouseleave", () => tween.timeScale(2).reverse());
+</script>

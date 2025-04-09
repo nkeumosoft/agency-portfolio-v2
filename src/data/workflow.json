@@ -1,0 +1,27 @@
+[
+  {
+    "number": "01",
+    "title": "Discovery & Strategy",
+    "description": "We start by understanding your goals, users, and challenges. Through workshops, stakeholder interviews, and market research, we uncover insights that shape the direction of your product.\n\nThis phase lays the foundation for everything that follows—ensuring we solve the right problems with the right approach."
+  },
+  {
+    "number": "02",
+    "title": "Planning & Architecture",
+    "description": "We translate strategy into actionable plans. Our team defines technical requirements, system architecture, timelines, and risk mitigation strategies.\n\nWith a clear roadmap and scalable architecture in place, we set the stage for smooth execution and future growth."
+  },
+  {
+    "number": "03",
+    "title": "Design & User Experience",
+    "description": "We design with users at the center. From wireframes to high-fidelity prototypes, our process ensures that every interaction is intuitive and aligned with user needs.\n\nOur goal: interfaces that look good, feel right, and make complex tasks simple."
+  },
+  {
+    "number": "04",
+    "title": "Development & Testing",
+    "description": "Our developers bring the designs to life using modern frameworks and best practices. We follow agile workflows, continuous integration, and rigorous testing to ensure quality.\n\nEvery line of code is written with performance, security, and maintainability in mind."
+  },
+  {
+    "number": "05",
+    "title": "Deployment & Support",
+    "description": "We handle deployment with care—ensuring stability, scalability, and smooth rollouts. Post-launch, we provide ongoing support, performance monitoring, and updates as needed.\n\nYour product stays secure, efficient, and up-to-date long after launch."
+  }
+]

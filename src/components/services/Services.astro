@@ -22,7 +22,6 @@ import services from "../../data/services.json"
     serviceContainer?.querySelectorAll('.service').forEach(service => {
         gsap.from(service, {
             opacity: 0,
-            x: 100,
             duration: 1.5,
             scrollTrigger: {
                 trigger: service,
@@ -33,10 +32,10 @@ import services from "../../data/services.json"
         })
     })
 
-    mm.add("(min-width: 800px)", () => {
+    mm.add("(min-width: 769px)", () => {
     ScrollTrigger.create({
         trigger: serviceContainer,
-        start: 'top 11%',
+        start: 'top top',
         end: () => {
             const height = serviceContainer?.scrollHeight || 0;
             const offset = height * 0.2;

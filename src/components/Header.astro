@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import Toggle from "./Toggle.astro";
 ---
 
-<div class="fixed top-0 left-0 w-screen px-4 md:px-8 z-50 bg-white">
+<div class="fixed top-0 left-0 w-screen px-4 md:px-8 z-50 header">
   <div
     class="h-full w-full flex justify-between items-center gap-1.5 py-0.5 px-0.5 md:py-2 md:px-8"
   >
@@ -28,3 +28,18 @@ import Toggle from "./Toggle.astro";
     </div>
   </div>
 </div>
+<script>
+  import { gsap, ScrollTrigger } from "@/utils/gsap";
+  let anim = gsap.from('.header', {
+    yPercent: -100,
+    paused: true,
+    ease:'power1.out',
+    duration: 1
+  }).progress(1)
+
+  ScrollTrigger.create({
+    start: 'top top',
+    end:'max',
+    onUpdate: self => self.direction === -1 ? anim.play() : anim.reverse(),
+  })
+</script>

@@ -1,4 +1,5 @@
 ---
+import Seperator from "../Seperator.astro";
 import Work from "./Work.astro";
 ---
 
@@ -7,6 +8,10 @@ import Work from "./Work.astro";
     <div class="w-full flex items-center justify-between pb-[50px]">
       <div class="mt-[50px]">
         <h1 class="font-normal text-3xl md:text-[50px] uppercase">Selected works</h1>
+      </div>
+      <div class="progress-bar w-[60%] mt-10 hidden md:block relative">
+        <div class="b w-full bg-black opacity-10 absolute top-0 h-px"></div>
+        <div class="t bg-black absolute top-0 h-px"></div>
       </div>
       <div class="text hidden md:block">See all works</div>
     </div>
@@ -22,11 +27,14 @@ import Work from "./Work.astro";
 
 <script>
   import { gsap, ScrollTrigger } from "@/utils/gsap";
+  import SplitType from "split-type";
   let cont = document.querySelector<HTMLElement>(".work-section"),
     sections = cont
       ? gsap.utils.toArray<HTMLElement>(cont?.querySelectorAll(".work"))
       : [],
-    mm = gsap.matchMedia();
+    mm = gsap.matchMedia(),
+    progressEl = document.querySelector<HTMLElement>('.progress-bar .t'),
+    projectNumbers = gsap.utils.toArray<HTMLElement>('.pn')
 
   mm.add("(min-width:800px)", () => {
     let tween = gsap.to(sections, {
@@ -36,12 +44,34 @@ import Work from "./Work.astro";
 
     ScrollTrigger.create({
       trigger: cont,
-      start: "top top",
+      start: "top 5%",
       end: () => "+=" + window.innerWidth * (sections.length - 1),
       animation: tween,
       pin: true,
       scrub: 1,
       pinSpacing: true,
+      onUpdate: self => {
+        const progress = self.progress;
+        if (progressEl && progressEl.parentElement) {
+          const width = progressEl.parentElement.offsetWidth;
+          progressEl.style.width = `${width * progress}px`;
+        }
+      }
     });
+
+    projectNumbers.forEach(number => {
+      let split = new SplitType(number)
+      gsap.from(split.chars, {
+        opacity: 0,
+        y: 100,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: number,
+          start: 'left 80%',
+          containerAnimation: tween,
+          toggleActions: 'play paused resume reverse'
+        }
+      })
+    })
   });
 </script>

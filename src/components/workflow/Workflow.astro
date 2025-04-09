@@ -1,0 +1,19 @@
+---
+import WorkflowCard from "./WorkflowCard.astro";
+import workflows from "../../data/workflow.json"
+---
+
+<div class="work-flow py-[100px] md:py-[100px] w-[98%] md:w-full flex flex-col items-center">
+  <div class="flex-col flex md:flex md:flex-row items-stretch justify-between pb-[100px] gap-[30px]">
+    <div class="text-2xl text-[#70707b] capitalize w-full md:w-1/2">our project workflow</div>
+    <div class="text-4xl font-normal w-full md:w-1/2">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia, odit
+      dolores! Aliquam perspiciatis, nobis recusandae, at nesciunt reprehenderit
+    </div>
+  </div>
+  <div class="workflow-card-container flex flex-col items-center w-full">
+    {
+      workflows.map(workflow => <WorkflowCard  workflow ={workflow}/>)
+    }
+  </div>
+</div>
