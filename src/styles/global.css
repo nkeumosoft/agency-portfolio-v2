@@ -117,6 +117,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Neue';
+    font-size: 24px;
   }
 }
 
@@ -142,6 +143,12 @@
 
 @font-face {
   font-family: 'Neue';
+  src: url('/fonts/Neue/NeueMontreal-Medium.otf') format('opentype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Neue';
   src: url('/fonts/Neue/NeueMontreal-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
@@ -163,4 +170,8 @@
 
 #quote {
   font-kerning: none;
+}
+
+.grow-container {
+  background-image: url(../assets/images/code.jpg);
 }

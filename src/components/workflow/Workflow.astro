@@ -17,3 +17,43 @@ import workflows from "../../data/workflow.json"
     }
   </div>
 </div>
+<script>
+  import { gsap, ScrollTrigger } from "@/utils/gsap";
+  let cards = gsap.utils.toArray<HTMLElement>('.card')
+  cards.forEach((card, index) => {
+    const isLast = index === cards.length - 1
+    //pinning
+    ScrollTrigger.create({
+      trigger: card,
+      start: 'top top',
+      end: () => `+=${window.innerHeight}`,
+      pin: true,
+      pinSpacing: isLast
+    })
+    //title animations
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 30%',
+        end: 'bottom 30%',
+        //markers: {startColor: 'yellow', endColor: 'pink'},
+        toggleActions: 'play reverse complete reverse'
+      },
+      paused: true
+    })
+
+    tl.to(card.querySelector('.s'), {
+      yPercent: -50,
+      //duration: 0.1
+    })
+    .to(card.querySelector('.s'), {
+      opacity: 0,
+      //duration: 0.1
+    },'-=0.5')
+    .from(card.querySelector('.f'), {
+      yPercent: 100,
+      opacity:0,
+      //duration: 0.1
+    }, '-=0.5')
+  })
+</script>

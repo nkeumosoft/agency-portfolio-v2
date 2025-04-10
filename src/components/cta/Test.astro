@@ -1,0 +1,51 @@
+---
+
+---
+<div class="test w-dvw h-dvh flex items-center justify-center relative">
+    <div
+    class="in flex opacity-0 items-center origin-center justify-center w-1/3 h-1/2 bg-green-200"></div>
+</div>
+<script>
+    import { gsap, ScrollTrigger } from "@/utils/gsap";
+    let box = document.querySelector<HTMLElement>(".in"),
+      trigger = document.querySelector(".test");
+    //video container timeline
+    let videoTl = () => {
+      let vtl = gsap.timeline();
+      vtl
+        .set(box, {
+          opacity: 1,
+        })
+        .from(box, {
+          yPercent: 100,
+        })
+        .to(
+          box,
+          {
+            width: "100%",
+            height: "100%",
+            // xPercent:-45,
+            // yPercent: -50,
+            duration: 1.2,
+            willChange:'height, width, transform'
+          },
+          "-=0.1"
+        );
+  
+      return vtl;
+    };
+  
+    //global timeline
+    let globalT = gsap.timeline({
+      scrollTrigger: {
+        trigger,
+        start: "top top",
+        end: "+=7000",
+        pin: true,
+        scrub: 1,
+        markers: true,
+      },
+    });
+  
+    globalT.add(videoTl());
+  </script>
