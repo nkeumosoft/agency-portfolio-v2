@@ -175,3 +175,7 @@
 .grow-container {
   background-image: url(../assets/images/code.jpg);
 }
+
+.work-flow:last-child{
+  padding-block: 0 !important;
+}
