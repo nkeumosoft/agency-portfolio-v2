@@ -1,32 +1,51 @@
 ---
-
+import { Fragment } from "astro/jsx-runtime";
 ---
 
-<div class="toggle fixed md:top-[2.7vw] top-[9.4vw] md:right-[3vw] right-[5vw] z-[1000]">
-  <div
-    class="flex flex-col gap-2.5 justify-center items-center w-[40px] p-px cursor-pointer menu-icon"
-  >
-    <div class="w-full h-[1px] bg-black bar1"></div>
-    <div class="w-full h-[1px] bg-black bar2"></div>
+<div class="relative z-[1000]">
+  <!-- Toggle Button -->
+  <div class="fixed md:top-[2.7vw] top-[9.4vw] md:right-[3vw] right-[5vw] z-[1000]">
+    <div
+      class="menu-icon flex flex-col gap-2 justify-center items-center w-10 h-10 cursor-pointer"
+    >
+      <div class="bar1 w-6 h-0.5 bg-black transition-all duration-300 ease-in-out"></div>
+      <div class="bar2 w-6 h-0.5 bg-black transition-all duration-300 ease-in-out"></div>
+    </div>
   </div>
+
+  <!-- Hidden Menu -->
+  <div
+    class="mobile-menu fixed top-0 right-0 h-screen w-[75vw] max-w-sm bg-white shadow-lg p-6 transform translate-x-full transition-transform duration-300 ease-in-out z-[999]"
+  >
+    <ul class="space-y-6 text-black text-lg">
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#">À propos</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <script type="module" is:inline>
+    import { gsap } from "@/utils/gsap";
+
+    const menuIcon = document.querySelector(".menu-icon");
+    const bar1 = document.querySelector(".bar1");
+    const bar2 = document.querySelector(".bar2");
+    const mobileMenu = document.querySelector(".mobile-menu");
+
+    let isOpen = false;
+
+    menuIcon?.addEventListener("click", () => {
+      if (!isOpen) {
+        gsap.to(bar1, { rotation: 45, y: 6, backgroundColor: '#000', duration: 0.3 });
+        gsap.to(bar2, { rotation: -45, y: -6, backgroundColor: '#000', duration: 0.3 });
+        gsap.to(mobileMenu, { x: 0, duration: 0.4, ease: "power2.out" });
+      } else {
+        gsap.to(bar1, { rotation: 0, y: 0, backgroundColor: '#000', duration: 0.3 });
+        gsap.to(bar2, { rotation: 0, y: 0, backgroundColor: '#000', duration: 0.3 });
+        gsap.to(mobileMenu, { x: "100%", duration: 0.4, ease: "power2.in" });
+      }
+      isOpen = !isOpen;
+    });
+  </script>
 </div>
-<script>
-  //TOGGLE HAMBURGER ICON
-  import { gsap } from "@/utils/gsap";
-  const menuIcon = document.querySelector<HTMLElement>(".menu-icon");
-  const bar1 = document.querySelector<HTMLElement>(".bar1");
-  const bar2 = document.querySelector<HTMLElement>(".bar2");
-
-  let isOpen = false;
-
-  menuIcon?.addEventListener("click", () => {
-    if (isOpen) {
-      gsap.to(bar1, { rotation: 0, y: 0, backgroundColor: 'black', duration: 0.3 });
-      gsap.to(bar2, { rotation: 0, y: 0, backgroundColor: 'black', duration: 0.3 });
-    } else {
-      gsap.to(bar1, { rotation: 45, y: 6, backgroundColor: 'white', duration: 0.3 });
-      gsap.to(bar2, { rotation: -45, y: -6, backgroundColor: 'white', duration: 0.3 });
-    }
-    isOpen = !isOpen;
-  });
-</script>

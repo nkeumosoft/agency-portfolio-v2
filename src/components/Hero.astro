@@ -1,17 +1,25 @@
 ---
+import heroImage from '../assets/images/hero3.jpg'
 ---
+<div class="relative w-full h-screen">
+  <!-- Image en fond -->
+  <img src={heroImage.src} alt="hero image" class="w-full h-full object-cover" />
 
-<div class="w-full flex items-center justify-center">
-  <h1
-    class="uppercase text-black font-light md:text-[112px] text-[38px] text-center md:leading-[120px]"
-    id="quote"
-  >
-    End-to-end Technical Solutions for Modern Businesses
-  </h1>
+  <!-- Texte superposé -->
+  <div class="absolute inset-0 flex items-center justify-center px-4">
+    <h1
+      class="uppercase text-white font-light md:text-[112px] text-[38px] text-center md:leading-[120px]"
+      id="quote"
+    >
+      End-to-end Technical Solutions for Modern Businesses
+    </h1>
+  </div>
 </div>
+
 <script>
   import SplitType from "split-type";
   import { gsap } from "@/utils/gsap";
+
   let text = new SplitType("#quote"),
     tl = gsap.timeline();
 
@@ -27,7 +35,7 @@
     )
     .to(
       text.words,
-      { duration: 0.4, color: "black", scale: 1, stagger: 0.1 },
+      { duration: 0.4, color: "white", scale: 1, stagger: 0.1 },
       "words+=0.1"
     )
     .from(text.lines, {
