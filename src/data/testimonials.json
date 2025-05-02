@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "author": "Natalie Owens",
+    "occupation": "Head of Product, Finvest",
+    "testimonial": "Trust Consulting delivered our MVP in record time — stable, scalable, and beautifully designed. Their team felt like an extension of ours.",
+    "url": "https://source.unsplash.com/Ke0nc7-3HD0/400x400"
+  },
+  {
+    "id": 2,
+    "author": "Ravi Patel",
+    "occupation": "CTO, HealthSync",
+    "testimonial": "Their cloud and DevOps expertise helped us scale confidently. We went from chaos to clarity in just a few weeks.",
+    "url": "https://source.unsplash.com/uWVWQ8gF8PE/400x400"
+  },
+  {
+    "id": 3,
+    "author": "Laura Kim",
+    "occupation": "UX Lead, BrightBank",
+    "testimonial": "Our user experience has dramatically improved since working with Trust Consulting. Their design thinking is top-tier.",
+    "url": "https://source.unsplash.com/Nl5ztrvHqZ8/400x400"
+  },
+  {
+    "id": 4,
+    "author": "Dmitri Ivanov",
+    "occupation": "Founder, DataOps.ai",
+    "testimonial": "Their AI/ML team helped us unlock insights we didn’t know we had. Strategic, smart, and seriously effective.",
+    "url": "../assets/images/unsplash.jpg"
+  }
+]

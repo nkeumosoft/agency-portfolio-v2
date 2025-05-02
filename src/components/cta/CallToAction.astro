@@ -3,10 +3,19 @@ import s from "../../assets/images/scale.jpg"
 import { Button } from "../ui/button"
 ---
 
-<div class="cta flex items-center h-dvh w-dvw justify-center bg-white">
-  <div class="inner w-full h-full flex flex-col items-center justify-center relative">
+<div class="cta flex flex-col items-center h-dvh w-dvw justify-center bg-white overflow-x-hidden">
+  <div class="cta-mobile w-full h-full bg-green-100 md:hidden flex justify-center">
+    <div class=" flex flex-col items-center w-full gap-[30px] h-full justify-center bg-black/35">
+      <h2 class="text-white text-5xl font-bold capitalize text-center">Ready to Transform Your Business?</h2>
+      <p class="text-white text-3xl text-center">Let's discuss how our technical expertise can help you achieve your business goals.</p>
+      <div class="button-wrapper">
+          <Button variant='outline' size="lg" className="rounded-full w-full">Let's talk</Button>
+      </div>
+  </div>
+  </div>
+  <div class="inner hidden w-full h-full md:flex flex-col items-center justify-center relative">
     <div
-      class="left overflow-hidden flex items-center justify-center gap-7 w-full"
+      class="left overflow-x-hidden flex items-center justify-center gap-7 w-full"
     >
       <h1
         class="capitalize text-nowrap break-keep font-normal md:font-medium text-[100px] md:text-[170px] text-black"
@@ -49,8 +58,11 @@ import { Button } from "../ui/button"
 <script>
   import { gsap, ScrollTrigger } from "@/utils/gsap";
   let box = document.querySelector<HTMLElement>(".cta .box"),
-    trigger = document.querySelector(".cta");
-  //text timeline
+    trigger = document.querySelector(".cta"),
+    mm = gsap.matchMedia();
+  
+  mm.add('(min-width:800px)', () => {
+     //text timeline
   const textTl = () => {
     let ttl = gsap.timeline();
     ttl
@@ -110,4 +122,5 @@ import { Button } from "../ui/button"
   });
 
   globalT.add(textTl()).add(videoTl(), "<");
+  })
 </script>

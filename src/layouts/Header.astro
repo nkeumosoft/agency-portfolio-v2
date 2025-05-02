@@ -1,8 +1,7 @@
 ---
-import { Image } from "astro:assets";
+import { Button } from "@/components/ui/button";
 import logo from "../assets/images/logo.png";
-import { Button } from "./ui/button";
-import Toggle from "./Toggle.astro";
+ const year = new Date().getFullYear()
 ---
 
 <div class="fixed top-0 left-0 backdrop-blur-md bg-white/10 w-screen px-4 md:px-8 z-50 header h-auto md:pt-[20px]">
@@ -17,7 +16,7 @@ import Toggle from "./Toggle.astro";
       />
     </div>
     <div class="hidden md:block font-neue font-normal text-black">
-      TRUST CONSULTING © 2025
+      {`TRUST CONSULTING © ${year}`}
     </div>
     <div class="flex justify-start items-center py-0.5 gap-6 md:w-48 w-40">
       <Button
