@@ -15,7 +15,7 @@ import { Button } from "../ui/button"
   </div>
   <div class="inner hidden w-full h-full md:flex flex-col items-center justify-center relative">
     <div
-      class="left overflow-x-hidden flex items-center justify-center gap-7 w-full"
+      class="left  flex items-center justify-center gap-7 w-full"
     >
       <h1
         class="capitalize text-nowrap break-keep font-normal md:font-medium text-[100px] md:text-[170px] text-black"
@@ -29,7 +29,7 @@ import { Button } from "../ui/button"
       </h1>
     </div>
     <div
-      class="right overflow-hidden flex items-center justify-start gap-7 w-full"
+      class="right flex items-center justify-start gap-7 w-full"
     >
       <h1
         class="capitalize text-nowrap break-keep font-normal md:font-medium text-[100px] md:text-[170px] text-black"
@@ -48,7 +48,10 @@ import { Button } from "../ui/button"
                 <h2 class="text-white text-5xl font-bold capitalize text-center">Ready to Transform Your Business?</h2>
                 <p class="text-white text-3xl text-center">Let's discuss how our technical expertise can help you achieve your business goals.</p>
                 <div class="button-wrapper">
-                    <Button variant='outline' size="lg" className="rounded-full w-full">Let's talk</Button>
+                  <a href="/contact">
+                    <Button variant='outline' size="lg" className="rounded-full w-full cursor-pointer">Let's talk</Button>
+                  </a>
+
                 </div>
             </div>
         </div>
@@ -115,7 +118,6 @@ import { Button } from "../ui/button"
       start: "top top",
       end: "+=4000",
       pin: true,
-      anticipatePin: 1,
       scrub: 1,
       pinSpacing: true
     },

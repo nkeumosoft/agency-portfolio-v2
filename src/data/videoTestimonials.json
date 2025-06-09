@@ -1,0 +1,20 @@
+[
+  {
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "avatarUrl": "/avatars/john.jpg",
+    "author": "John Doe",
+    "occupation": "Creative Director"
+  },
+  {
+    "videoUrl": "https://www.youtube.com/embed/3GwjfUFyY6M",
+    "avatarUrl": "/avatars/jane.jpg",
+    "author": "Jane Smith",
+    "occupation": "Product Manager"
+  },
+  {
+    "videoUrl": "https://www.youtube.com/embed/V-_O7nl0Ii0",
+    "avatarUrl": "/avatars/carlos.jpg",
+    "author": "Carlos Rivera",
+    "occupation": "UX Designer"
+  }
+]

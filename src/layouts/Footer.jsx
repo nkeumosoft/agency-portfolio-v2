@@ -10,7 +10,7 @@ const TrustConsultingFooter = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
         <div className="flex flex-col items-start">
-          <div className="text-3xl font-bold mb-4 text-agp-lb">Trust Consulting</div>
+          <div className="text-3xl font-bold mb-4 text-white">Trust Consulting</div>
           <p className="text-sm text-center md:text-left mb-4 text-gray-300">
           End-to-end technical solutions for modern businesses.
           </p>
@@ -32,40 +32,40 @@ const TrustConsultingFooter = () => {
 
         {/* Sitemap / More Links Section */}
         <div className="flex flex-col items-start">
-          <h3 className="text-lg font-semibold mb-4 text-agp-lb">Sitemap</h3>
+          <h3 className="text-lg font-semibold mb-4 text-white">Sitemap</h3>
           <ul className="text-sm space-y-2 text-gray-300">
-            <li><a href="#" className="hover:underline">Home</a></li>
+            <li><a href="/" className="hover:underline">Home</a></li>
             <li><a href="#" className="hover:underline">About Us</a></li>
-            <li><a href="#" className="hover:underline">Services</a></li> 
+            <li><a href="/services" className="hover:underline">Services</a></li> 
             <li><a href="#" className="hover:underline">Case Studies</a></li> 
             <li><a href="#" className="hover:underline">Blog</a></li> 
             <li><a href="#" className="hover:underline">Careers</a></li>
-            <li><a href="#" className="hover:underline">Contact</a></li>
+            <li><a href="/contact" className="hover:underline">Contact</a></li>
           </ul>
         </div>
 
         {/* Social Media Section */}
         <div className="flex flex-col items-start">
-          <h3 className="text-lg font-semibold mb-4 text-agp-lb">Follow Us</h3>
+          <h3 className="text-lg font-semibold mb-4 text-white">Follow Us</h3>
           <div className="flex space-x-5">
             <a href="#" className="text-white hover:opacity-75" aria-label="Facebook">
-              <Facebook size={24} className="text-agp-lb" />
+              <Facebook size={24} />
             </a>
             <a href="#" className="text-white hover:opacity-75" aria-label="Twitter">
-              <Twitter size={24} className="text-agp-lb" />
+              <Twitter size={24} />
             </a>
             <a href="#" className="text-white hover:opacity-75" aria-label="Instagram">
-              <Instagram size={24} className="text-agp-lb" />
+              <Instagram size={24} />
             </a>
             <a href="#" className="text-white hover:opacity-75" aria-label="LinkedIn">
-              <Linkedin size={24} className="text-agp-lb" />
+              <Linkedin size={24} />
             </a>
           </div>
         </div>
 
         {/* Newsletter Signup Section */}
         <div className="flex flex-col items-start">
-          <h3 className="text-lg font-semibold mb-4 text-agp-lb">Stay Updated</h3>
+          <h3 className="text-lg font-semibold mb-4 text-white">Stay Updated</h3>
           <p className="text-sm mb-4 text-center md:text-left text-gray-300">
             Subscribe to our newsletter for the latest insights and updates.
           </p>

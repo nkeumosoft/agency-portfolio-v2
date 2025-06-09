@@ -1,7 +1,11 @@
 ---
- import '../styles/global.css'
+ import ToastProvider from '@/components/ToastProvider'
+import '../styles/global.css'
 import Footer from './Footer.jsx'
 import Header from './Header.astro'
+import OffcanvasMenu from '@/components/offcanvas/OffcanvasMenu.astro'
+import Toggle from '@/components/Toggle.astro'
+
  
 ---
 <!doctype html>
@@ -17,6 +21,9 @@ import Header from './Header.astro'
 		<Header/>
 		<slot />
 		<Footer />
+		<OffcanvasMenu />
+		<Toggle />
+		<ToastProvider />
 	</body>
 </html>
 <style>
@@ -27,3 +34,9 @@ import Header from './Header.astro'
 		height: 100%;
 	}
 </style>
+<script is:inline>
+  import AOS from 'aos';
+  AOS.init({ duration: 800, once: true });
+</script>
+
+

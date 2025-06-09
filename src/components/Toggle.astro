@@ -11,22 +11,50 @@
   </div>
 </div>
 <script>
-  //TOGGLE HAMBURGER ICON
-  import { gsap } from "@/utils/gsap";
-  const menuIcon = document.querySelector<HTMLElement>(".menu-icon");
-  const bar1 = document.querySelector<HTMLElement>(".bar1");
-  const bar2 = document.querySelector<HTMLElement>(".bar2");
+import { gsap } from "gsap";
 
-  let isOpen = false;
+const offcanvas = document.querySelector(".offcanvas");
+const toggle = document.querySelector(".toggle");
+const menuIcon = document.querySelector(".menu-icon");
+const bar1 = document.querySelector(".bar1");
+const bar2 = document.querySelector(".bar2");
 
-  menuIcon?.addEventListener("click", () => {
-    if (isOpen) {
-      gsap.to(bar1, { rotation: 0, y: 0, backgroundColor: 'black', duration: 0.3 });
-      gsap.to(bar2, { rotation: 0, y: 0, backgroundColor: 'black', duration: 0.3 });
-    } else {
-      gsap.to(bar1, { rotation: 45, y: 6, backgroundColor: 'white', duration: 0.3 });
-      gsap.to(bar2, { rotation: -45, y: -6, backgroundColor: 'white', duration: 0.3 });
-    }
-    isOpen = !isOpen;
+let isOpen = false;
+
+const openMenu = () => {
+  // Show the offcanvas menu
+  offcanvas?.classList.remove("hidden");
+  gsap.to(offcanvas, { height: "100vh", duration: 0.5, ease: "power2.out" });
+
+  // Animate hamburger icon to X
+  gsap.to(bar1, { rotation: 45, y: 6, backgroundColor: "white", duration: 0.3 });
+  gsap.to(bar2, { rotation: -45, y: -6, backgroundColor: "white", duration: 0.3 });
+
+  // Ensure toggle stays above
+  toggle?.classList.add("z-[99999]");
+};
+
+const closeMenu = () => {
+  // Animate height down then hide
+  gsap.to(offcanvas, {
+    height: "0vh",
+    duration: 0.4,
+    ease: "power2.in",
+    onComplete: () => {
+      offcanvas?.classList.add("hidden");
+    },
   });
+
+  // Animate icon back to hamburger
+  gsap.to(bar1, { rotation: 0, y: 0, backgroundColor: "black", duration: 0.3 });
+  gsap.to(bar2, { rotation: 0, y: 0, backgroundColor: "black", duration: 0.3 });
+
+  // Restore z-index
+  toggle?.classList.remove("z-[99999]");
+};
+
+menuIcon?.addEventListener("click", () => {
+  isOpen ? closeMenu() : openMenu();
+  isOpen = !isOpen;
+});
 </script>

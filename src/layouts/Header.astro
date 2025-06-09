@@ -1,7 +1,8 @@
 ---
 import { Button } from "@/components/ui/button";
 import logo from "../assets/images/logo.png";
- const year = new Date().getFullYear()
+import Toggle from "@/components/Toggle.astro";
+const year = new Date().getFullYear()
 ---
 
 <div class="fixed top-0 left-0 backdrop-blur-md bg-white/10 w-screen px-4 md:px-8 z-50 header h-auto md:pt-[20px]">
@@ -9,21 +10,24 @@ import logo from "../assets/images/logo.png";
     class="h-full w-full flex justify-between items-center gap-1.5 py-0.5 px-0.5 md:py-2 md:px-8"
   >
     <div class="md:h-[10%] md:w-[10%] h-[100px] w-[100px]">
-      <img
-        src={logo.src}
-        alt="company logo"
-        class="w-full h-full object-contain"
-      />
+      <a href="/">
+        <img
+          src={logo.src}
+          alt="company logo"
+          class="w-full h-full object-contain"
+        />
+      </a>
     </div>
-    <div class="hidden md:block font-neue font-normal text-black">
+    <!-- <div class="hidden md:block font-neue font-normal text-black">
       {`TRUST CONSULTING © ${year}`}
-    </div>
+    </div> -->
     <div class="flex justify-start items-center py-0.5 gap-6 md:w-48 w-40">
-      <Button
-        variant="outline"
-        className="rounded-full md:h-10 md:px-6 cursor-pointer text-[16px] bg-transparent border-black text-black"
-        >Let's talk</Button
-      >
+      <a href="/contact">
+        <Button
+          variant="outline"
+          className="rounded-full md:h-10 md:px-6 cursor-pointer text-[16px] bg-transparent border-black text-black"
+        >Let's talk</Button>
+      </a>
     </div>
   </div>
 </div>
